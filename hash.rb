@@ -1,5 +1,5 @@
 # Estrutura p/ representar os estudantes e a respectiva idade de cada um
-# Porém essa não é a melhor de estruturamos essa estrutura de dados
+# Porém essa não é a melhor forma de estruturar esses dados
 students =     [ "Peter", "Mary", "George", "Emma", "Gabriel"]
 student_ages = [ 24     , 25    , 22      ,  20    ]
 
@@ -79,3 +79,27 @@ end
 p paris.key?(:star_monument) # Podemos verificar se uma chave está presente utilizando .key?
 p paris.keys.map { |key| key.to_s } # Retornando todas as CHAVES em uma lista (Array) de Strings
 p paris.values # Retornando todos os VALORES presentes na Hash
+
+# ------------- UTILIZANDO HASHES EM MÉTODOS ------------- 
+# Vamos construir um programa que diga qual a idade de cada aluno,
+# da seguinte maneira:
+# Olá, #{batch_number}
+# "#{name} tem #{X} anos"
+# "#{name} tem #{X} anos"
+# "#{name} tem #{X} anos"
+# "#{name} tem #{X} anos"
+
+# Implementação:
+def greetings(batch_number, hash = {}) # Atribuimos um valor de {} ao parametro, assim é esperado receber sempre uma Hash
+puts "Olá, batch #{batch_number}" # Saudação Inicial
+  hash.each do |name, age| # Passando por cada elemento da Hash
+    puts "#{name} tem #{age} anos" # Imprimindo a CHAVE name e o VALOR age
+  end
+end
+  
+# Chamamos a função greeting passando uma hash como parâmetro
+greetings(1040, { Marcus: 28, Tomas: 34, Lola: 27, Mariane: 21, Matteo: 30 })
+
+# Podemos refatorar a chamada da função sem utilizar as {} no parametro students
+greetings(1040, Marcus: 28, Tomas: 34, Lola: 27, Mariane: 21, Matteo: 30)
+  
